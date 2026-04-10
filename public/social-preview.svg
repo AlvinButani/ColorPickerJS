@@ -1,0 +1,47 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#D0634D"/>
+  <rect width="1200" height="630" fill="url(#paint0_radial_1_2)"/>
+  <rect x="54" y="54" width="1092" height="522" rx="42" fill="url(#paint1_linear_1_2)" fill-opacity="0.18" stroke="rgba(255,255,255,0.28)" stroke-width="2"/>
+
+  <g opacity="0.96">
+    <text x="94" y="136" fill="white" font-size="24" font-family="Arial, Helvetica, sans-serif" letter-spacing="7">RGB / RGBA / HEX</text>
+    <text x="94" y="235" fill="white" font-size="76" font-weight="700" font-family="Arial, Helvetica, sans-serif">Color Code</text>
+    <text x="94" y="320" fill="white" font-size="76" font-weight="700" font-family="Arial, Helvetica, sans-serif">Converter</text>
+    <text x="94" y="382" fill="rgba(255,255,255,0.88)" font-size="30" font-family="Arial, Helvetica, sans-serif">Instant copy-ready color code for SwiftUI, Kotlin, React, Flutter, and more.</text>
+  </g>
+
+  <g>
+    <rect x="94" y="444" width="628" height="92" rx="26" fill="rgba(255,255,255,0.9)"/>
+    <text x="128" y="501" fill="#171717" font-size="34" font-family="Arial, Helvetica, sans-serif">rgb(255, 99, 71)</text>
+    <circle cx="1030" cy="222" r="114" fill="rgba(255,255,255,0.16)"/>
+    <circle cx="1030" cy="222" r="84" fill="rgba(255,255,255,0.94)"/>
+    <path d="M984 231C984 204.49 1005.49 183 1032 183H1076" stroke="#D0634D" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1076 183L1058 165" stroke="#D0634D" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1076 183L1058 201" stroke="#D0634D" stroke-width="18" stroke-linecap="round"/>
+    <circle cx="1006" cy="254" r="14" fill="#D0634D"/>
+    <circle cx="1042" cy="254" r="14" fill="#D0634D" fill-opacity="0.72"/>
+    <circle cx="1074" cy="254" r="14" fill="#D0634D" fill-opacity="0.42"/>
+  </g>
+
+  <g>
+    <rect x="764" y="408" width="156" height="124" rx="26" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.16)"/>
+    <text x="792" y="448" fill="rgba(255,255,255,0.84)" font-size="20" letter-spacing="2" font-family="Arial, Helvetica, sans-serif">SWIFTUI</text>
+    <text x="792" y="492" fill="white" font-size="22" font-family="Courier New, monospace">Color(...)</text>
+  </g>
+  <g>
+    <rect x="942" y="408" width="156" height="124" rx="26" fill="rgba(255,255,255,0.14)" stroke="rgba(255,255,255,0.16)"/>
+    <text x="973" y="448" fill="rgba(255,255,255,0.84)" font-size="20" letter-spacing="2" font-family="Arial, Helvetica, sans-serif">KOTLIN</text>
+    <text x="970" y="492" fill="white" font-size="22" font-family="Courier New, monospace">Color(...)</text>
+  </g>
+
+  <defs>
+    <radialGradient id="paint0_radial_1_2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(216 94) rotate(37.6348) scale(993.666 1247.7)">
+      <stop stop-color="white" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.08"/>
+    </radialGradient>
+    <linearGradient id="paint1_linear_1_2" x1="84" y1="66" x2="1114" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+</svg>
