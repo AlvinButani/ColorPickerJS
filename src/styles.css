@@ -335,6 +335,40 @@ h1 {
   opacity: 0.92;
 }
 
+.site-footer {
+  margin-top: 26px;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer-link,
+.site-footer a {
+  padding: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.92rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+}
+
+.about-modal {
+  width: min(720px, 100%);
+}
+
+.about-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.about-copy p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.94;
+}
+
 @media (max-width: 640px) {
   .app-shell {
     place-items: start center;
@@ -356,6 +390,10 @@ h1 {
 
   .snippet-grid {
     grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    justify-content: flex-start;
   }
 
   .snippet-modal {

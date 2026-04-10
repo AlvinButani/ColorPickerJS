@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 
-const INITIAL_COLOR = "rgb(255, 99, 71)";
 const PRIMARY_SNIPPETS = ["SwiftUI", "Kotlin", "React", "Flutter"];
 
 function clampChannel(value) {
@@ -117,6 +116,14 @@ function getContrastColor(parsedColor) {
   return brightness > 160 ? "#111111" : "#FFFFFF";
 }
 
+function getRandomInitialColor() {
+  const red = Math.floor(Math.random() * 206) + 25;
+  const green = Math.floor(Math.random() * 206) + 25;
+  const blue = Math.floor(Math.random() * 206) + 25;
+
+  return `rgb(${red}, ${green}, ${blue})`;
+}
+
 function getCodeSnippets(parsedColor) {
   const { red, green, blue, alpha, hex } = parsedColor;
   const alphaValue = alpha ?? 1;
@@ -197,8 +204,10 @@ export default function App() {
   const [value, setValue] = useState("");
   const [copiedKey, setCopiedKey] = useState("");
   const [isSnippetModalOpen, setIsSnippetModalOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+  const [initialColor] = useState(() => getRandomInitialColor());
   const parsedColor = useMemo(() => parseColor(value), [value]);
-  const activeColor = parsedColor?.cssColor ?? INITIAL_COLOR;
+  const activeColor = parsedColor?.cssColor ?? initialColor;
   const textColor = parsedColor ? getContrastColor(parsedColor) : "#FFFFFF";
   const codeSnippets = useMemo(
     () => (parsedColor ? getCodeSnippets(parsedColor) : []),
@@ -233,16 +242,18 @@ export default function App() {
 
   useEffect(() => {
     setIsSnippetModalOpen(false);
+    setIsAboutModalOpen(false);
   }, [value]);
 
   useEffect(() => {
-    if (!isSnippetModalOpen) {
+    if (!isSnippetModalOpen && !isAboutModalOpen) {
       return undefined;
     }
 
     function handleKeyDown(event) {
       if (event.key === "Escape") {
         setIsSnippetModalOpen(false);
+        setIsAboutModalOpen(false);
       }
     }
 
@@ -253,7 +264,7 @@ export default function App() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isSnippetModalOpen]);
+  }, [isAboutModalOpen, isSnippetModalOpen]);
 
   return (
     <main
@@ -267,7 +278,7 @@ export default function App() {
 
       <section className="converter-card">
         <p className="eyebrow">RGB / RGBA / HEX</p>
-        <h1>Color code converter</h1>
+        <h1>ColorDevKit</h1>
         <p className="intro">
           Paste a color like <span>rgb(255, 99, 71)</span>,{" "}
           <span>rgba(255, 99, 71, 0.6)</span>, or <span>#FF6347</span>.
@@ -362,6 +373,20 @@ export default function App() {
                 </div>
               ) : null}
             </div>
+
+            <footer className="site-footer">
+              <button
+                type="button"
+                className="footer-link"
+                onClick={() => setIsAboutModalOpen(true)}
+                aria-haspopup="dialog"
+                aria-expanded={isAboutModalOpen}
+              >
+                About
+              </button>
+              <a href="/privacy.html">Privacy Policy</a>
+              <a href="/terms.html">Terms</a>
+            </footer>
           </>
         ) : (
           <p className="error-text">
@@ -369,6 +394,22 @@ export default function App() {
             {" "}or <strong>#hex</strong> value to see the conversion.
           </p>
         )}
+
+        {!parsedColor ? (
+          <footer className="site-footer">
+            <button
+              type="button"
+              className="footer-link"
+              onClick={() => setIsAboutModalOpen(true)}
+              aria-haspopup="dialog"
+              aria-expanded={isAboutModalOpen}
+            >
+              About
+            </button>
+            <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms</a>
+          </footer>
+        ) : null}
       </section>
 
       {isSnippetModalOpen ? (
@@ -418,6 +459,55 @@ export default function App() {
                   <code>{snippet.code}</code>
                 </article>
               ))}
+            </div>
+          </section>
+        </div>
+      ) : null}
+
+      {isAboutModalOpen ? (
+        <div
+          className="modal-backdrop"
+          role="presentation"
+          onClick={() => setIsAboutModalOpen(false)}
+        >
+          <section
+            className="snippet-modal about-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="about-modal-title"
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              backgroundColor: activeColor,
+              color: textColor,
+            }}
+          >
+            <div className="modal-header">
+              <div>
+                <p className="modal-eyebrow">About</p>
+                <h3 id="about-modal-title">About this tool</h3>
+              </div>
+              <button
+                type="button"
+                className="modal-close"
+                onClick={() => setIsAboutModalOpen(false)}
+                aria-label="Close about dialog"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+
+            <div className="about-copy">
+              <p>
+                ColorDevKit helps developers convert <strong>RGB</strong>,
+                {" "}<strong>RGBA</strong>, and <strong>HEX</strong> values quickly and
+                copy ready-to-use color code for <strong>SwiftUI</strong>,
+                {" "}<strong>Kotlin</strong>, <strong>React</strong>, <strong>Flutter</strong>,
+                {" "}and other platforms.
+              </p>
+              <p>
+                Paste a color value, get the converted format instantly, and copy the
+                result for mobile apps, websites, design systems, and UI development.
+              </p>
             </div>
           </section>
         </div>

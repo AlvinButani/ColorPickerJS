@@ -1,6 +1,6 @@
 {
-  "name": "Color Code Converter",
-  "short_name": "Color Converter",
+  "name": "ColorDevKit",
+  "short_name": "ColorDevKit",
   "description": "Convert RGB, RGBA, and HEX values into copy-ready code for web and app development.",
   "theme_color": "#D0634D",
   "background_color": "#D0634D",
