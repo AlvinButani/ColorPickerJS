@@ -548,18 +548,17 @@ function getConversionCards(parsedColor) {
   const hsl = rgbToHsl(parsedColor);
   const hsv = rgbToHsv(parsedColor);
   const oklch = rgbToOklch(parsedColor);
-  const namedColor = getCssNamedColor(parsedColor);
 
   return [
     { label: "HEX", value: parsedColor.hex },
     { label: "RGB", value: parsedColor.rgbText },
+    { label: "RGBA", value: parsedColor.rgbaText },
     { label: "HSL", value: `hsl(${hsl.hue}, ${hsl.saturation}%, ${hsl.lightness}%)` },
     { label: "HSB / HSV", value: `hsb(${hsv.hue}, ${hsv.saturation}%, ${hsv.brightness}%)` },
     {
       label: "OKLCH (Modern CSS)",
       value: `oklch(${oklch.lightness} ${oklch.chroma} ${oklch.hue})`,
     },
-    { label: "CSS Named Color", value: namedColor, muted: namedColor === "No named match" },
   ];
 }
 
@@ -741,6 +740,30 @@ ${colors}
 }`;
 }
 
+function getCopyToastMessage(label) {
+  if (!label) {
+    return "";
+  }
+
+  if (label === "Share URL") {
+    return "Share link copied";
+  }
+
+  if (label.startsWith("Palette")) {
+    return `${label.replace("Palette ", "")} copied`;
+  }
+
+  if (label.startsWith("Tailwind")) {
+    return "Tailwind class copied";
+  }
+
+  if (label.startsWith("Opacity")) {
+    return "RGBA opacity copied";
+  }
+
+  return `${label} copied`;
+}
+
 async function copyText(text) {
   await navigator.clipboard.writeText(text);
 }
@@ -896,6 +919,7 @@ export default function App() {
     () => codeSnippets.filter((snippet) => !PRIMARY_SNIPPETS.includes(snippet.label)),
     [codeSnippets],
   );
+  const copyToastMessage = getCopyToastMessage(copiedKey);
 
   useEffect(() => {
     if (!copiedKey) {
@@ -1169,7 +1193,7 @@ export default function App() {
         <div className="workspace-panel">
           {parsedColor ? (
             <>
-              <section className="tool-section" aria-labelledby="conversions-title">
+              <section className="tool-section conversions-section" aria-labelledby="conversions-title">
                 <div className="section-header">
                   <div>
                     <p className="section-kicker">Inspect</p>
@@ -1207,7 +1231,7 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="tool-section" aria-labelledby="contrast-title">
+              <section className="tool-section contrast-section" aria-labelledby="contrast-title">
                 <div className="section-header">
                   <div>
                     <p className="section-kicker">Accessibility</p>
@@ -1246,7 +1270,7 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="tool-section" aria-labelledby="opacity-title">
+              <section className="tool-section opacity-section" aria-labelledby="opacity-title">
                 <div className="section-header">
                   <div>
                     <p className="section-kicker">Variants</p>
@@ -1279,13 +1303,13 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="tool-section" aria-labelledby="tailwind-title">
+              <section className="tool-section developer-section" aria-labelledby="developer-title">
                 <div className="section-header">
                   <div>
-                    <p className="section-kicker">Tailwind</p>
-                    <h2 id="tailwind-title" className="section-title">Closest Tailwind class</h2>
+                    <p className="section-kicker">Export</p>
+                    <h2 id="developer-title" className="section-title">Developer snippets</h2>
                   </div>
-                  <p>Copy web-ready utility classes from the nearest Tailwind v3 color.</p>
+                  <p>Platform-ready code for mobile and web projects.</p>
                 </div>
 
                 {tailwindMatch ? (
@@ -1344,16 +1368,6 @@ export default function App() {
                     </div>
                   </div>
                 ) : null}
-              </section>
-
-              <section className="tool-section" aria-labelledby="developer-title">
-                <div className="section-header">
-                  <div>
-                    <p className="section-kicker">Export</p>
-                    <h2 id="developer-title" className="section-title">Developer snippets</h2>
-                  </div>
-                  <p>Platform-ready code for mobile and web projects.</p>
-                </div>
 
                 <div className="snippet-grid">
                   {primarySnippets.map((snippet) => (
@@ -1387,7 +1401,7 @@ export default function App() {
                 ) : null}
               </section>
 
-              <section className="tool-section" aria-labelledby="css-title">
+              <section className="tool-section css-section" aria-labelledby="css-title">
                 <div className="section-header">
                   <div>
                     <p className="section-kicker">CSS</p>
@@ -1414,7 +1428,7 @@ export default function App() {
                 </div>
               </section>
 
-              <section className="tool-section" aria-labelledby="palette-title">
+              <section className="tool-section palette-section" aria-labelledby="palette-title">
                 <div className="section-header">
                   <div>
                     <p className="section-kicker">Scale</p>
@@ -1565,7 +1579,7 @@ export default function App() {
             <div className="modal-header">
               <div>
                 <p className="modal-eyebrow">About</p>
-                <h3 id="about-modal-title">About this tool</h3>
+                <h3 id="about-modal-title">About ColorDevKit</h3>
               </div>
               <button
                 type="button"
@@ -1579,15 +1593,54 @@ export default function App() {
 
             <div className="about-copy">
               <p>
-                ColorDevKit helps developers convert <strong>RGB</strong>,
-                {" "}<strong>RGBA</strong>, and <strong>HEX</strong> values quickly and
-                copy ready-to-use color code for <strong>SwiftUI</strong>,
-                {" "}<strong>Kotlin</strong>, <strong>React</strong>, <strong>Flutter</strong>,
-                {" "}and other platforms.
+                ColorDevKit is a fast and developer-friendly color code converter
+                designed to simplify working with colors across platforms. It allows
+                you to instantly convert between HEX, RGB, and RGBA values and
+                generate ready-to-use code for modern development frameworks.
               </p>
               <p>
-                Paste a color value, get the converted format instantly, and copy the
-                result for mobile apps, websites, design systems, and UI development.
+                Whether you're building mobile apps, websites, or design systems,
+                ColorDevKit helps you work with colors more efficiently.
+              </p>
+
+              <h4>What You Can Do</h4>
+              <p>ColorDevKit provides essential color conversion tools for developers:</p>
+              <ul>
+                <li>Convert HEX to RGB and RGBA in real time</li>
+                <li>Convert RGB/RGBA to HEX instantly</li>
+                <li>Copy ready-to-use color code for SwiftUI</li>
+                <li>Copy Kotlin code for Android development</li>
+                <li>Copy React and React Native color values</li>
+                <li>Copy Flutter color code</li>
+                <li>Use snippets for other popular frameworks</li>
+              </ul>
+              <p>
+                All conversions are accurate, fast, and optimized for developer workflows.
+              </p>
+
+              <h4>Built for Developers & Designers</h4>
+              <p>ColorDevKit is ideal for:</p>
+              <ul>
+                <li>iOS developers using SwiftUI</li>
+                <li>Android developers working with Kotlin</li>
+                <li>Web developers using React</li>
+                <li>Flutter developers building cross-platform apps</li>
+                <li>UI/UX designers creating consistent color systems</li>
+              </ul>
+
+              <h4>Fast, Simple, and Efficient</h4>
+              <ul>
+                <li>Paste any color value and get instant results</li>
+                <li>No login or setup required</li>
+                <li>Clean interface focused on productivity</li>
+                <li>Perfect for UI development, theming, and design systems</li>
+              </ul>
+
+              <h4>Why ColorDevKit</h4>
+              <p>
+                If you're looking for a reliable HEX to RGB converter, RGBA generator,
+                or multi-platform color code tool, ColorDevKit provides everything you
+                need in one place: fast, simple, and built for developers.
               </p>
             </div>
           </section>
@@ -1647,6 +1700,20 @@ export default function App() {
           </section>
         </div>
       ) : null}
+
+      <div
+        className={`copy-toast ${copyToastMessage ? "copy-toast-visible" : ""}`}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <span className="copy-toast-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false">
+            <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <span>{copyToastMessage}</span>
+      </div>
     </main>
   );
 }
