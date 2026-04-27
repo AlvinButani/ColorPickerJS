@@ -1188,6 +1188,41 @@ export default function App() {
           >
             Press ? for shortcuts
           </button>
+
+          <section className="seo-links-panel" aria-labelledby="seo-links-title">
+            <div className="seo-links-header">
+              <span className="section-kicker" id="seo-links-title">Resources</span>
+              <p>Landing pages for specific conversions and platform workflows.</p>
+            </div>
+
+            <div className="seo-link-group">
+              <strong>Converter pages</strong>
+              <div className="seo-link-list">
+                <a href="/hex-to-rgb-converter.html">HEX to RGB</a>
+                <a href="/rgb-to-hex-converter.html">RGB to HEX</a>
+                <a href="/rgba-to-hex-converter.html">RGBA to HEX</a>
+              </div>
+            </div>
+
+            <div className="seo-link-group">
+              <strong>Platform guides</strong>
+              <div className="seo-link-list">
+                <a href="/hex-to-swiftui-color.html">SwiftUI</a>
+                <a href="/hex-to-kotlin-color.html">Kotlin</a>
+                <a href="/hex-to-react-color.html">React</a>
+                <a href="/hex-to-flutter-color.html">Flutter</a>
+              </div>
+            </div>
+
+            <div className="seo-link-group">
+              <strong>Learn</strong>
+              <div className="seo-link-list">
+                <a href="/hex-vs-rgb-vs-rgba.html">HEX vs RGB vs RGBA</a>
+                <a href="/how-to-use-hex-colors-in-flutter.html">HEX in Flutter</a>
+                <a href="/how-to-use-hex-colors-in-react.html">HEX in React</a>
+              </div>
+            </div>
+          </section>
         </div>
 
         <div className="workspace-panel">
@@ -1493,15 +1528,9 @@ export default function App() {
         </div>
 
         <footer className="site-footer">
-          <button
-            type="button"
-            className="footer-link"
-            onClick={() => setIsAboutModalOpen(true)}
-            aria-haspopup="dialog"
-            aria-expanded={isAboutModalOpen}
-          >
+          <a href="/about.html" className="footer-link">
             About
-          </button>
+          </a>
           <a href="/privacy.html">Privacy Policy</a>
           <a href="/terms.html">Terms</a>
         </footer>
