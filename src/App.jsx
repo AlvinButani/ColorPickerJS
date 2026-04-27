@@ -1175,20 +1175,6 @@ export default function App() {
             ) : null}
           </div>
 
-          <div className="supporting-copy">
-            <span>Live preview</span>
-            <span>WCAG checks</span>
-            <span>Shareable URLs</span>
-          </div>
-
-          <button
-            type="button"
-            className="shortcut-hint"
-            onClick={() => setIsShortcutsModalOpen(true)}
-          >
-            Press ? for shortcuts
-          </button>
-
           <section className="seo-links-panel" aria-labelledby="seo-links-title">
             <div className="seo-links-header">
               <span className="section-kicker" id="seo-links-title">Resources</span>
