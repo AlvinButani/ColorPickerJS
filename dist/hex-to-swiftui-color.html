@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HEX to SwiftUI Color Converter | ColorDevKit</title>
+    <meta
+      name="description"
+      content="Convert HEX colors to SwiftUI Color code instantly. Learn how to use HEX values in SwiftUI and copy ready-to-use color code with ColorDevKit."
+    />
+    <meta name="theme-color" content="#D0634D" />
+    <link rel="canonical" href="https://color.devkitapp.in/hex-to-swiftui-color.html" />
+    <style>
+      :root {
+        color-scheme: light;
+        --card: rgba(255, 255, 255, 0.14);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --text: #ffffff;
+        --muted: rgba(255, 255, 255, 0.84);
+        --link: #fff7f4;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22), transparent 28%),
+          linear-gradient(135deg, #cf6c56, #bf583f);
+      }
+      .page {
+        width: min(920px, calc(100vw - 32px));
+        margin: 24px auto;
+        padding: 28px;
+        border-radius: 28px;
+        backdrop-filter: blur(22px);
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      }
+      .eyebrow { margin: 0 0 10px; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.84; }
+      h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 4.1rem); line-height: 0.96; letter-spacing: -0.05em; }
+      .content { margin-top: 28px; display: grid; gap: 18px; }
+      section { padding: 18px 20px; border-radius: 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.14); }
+      h2 { margin: 0 0 10px; font-size: 1.15rem; }
+      p, li { margin: 0; line-height: 1.7; color: var(--muted); }
+      ul { margin: 10px 0 0; padding-left: 18px; }
+      code, pre {
+        font-family: "SFMono-Regular", "Consolas", monospace;
+        font-size: 0.95rem;
+      }
+      pre {
+        margin: 12px 0 0;
+        padding: 16px;
+        overflow: auto;
+        border-radius: 18px;
+        background: rgba(15, 15, 15, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #fff7f4;
+      }
+      a { color: var(--link); }
+      .back-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+      .back-link {
+        display: inline-flex;
+        padding: 12px 18px;
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+      @media (max-width: 640px) {
+        .page { padding: 22px 16px; border-radius: 24px; }
+        section { padding: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">SwiftUI Guide</p>
+      <h1>HEX to SwiftUI Color Converter</h1>
+
+      <div class="content">
+        <section>
+          <p>
+            Need to convert a HEX color like <code>#FF6347</code> into SwiftUI code?
+            ColorDevKit helps you turn HEX values into ready-to-use SwiftUI color
+            snippets instantly.
+          </p>
+        </section>
+
+        <section>
+          <h2>SwiftUI Example</h2>
+          <p>For a HEX color like <code>#FF6347</code>, the SwiftUI output can look like:</p>
+          <pre><code>Color(.sRGB, red: 255 / 255, green: 99 / 255, blue: 71 / 255, opacity: 1)</code></pre>
+        </section>
+
+        <section>
+          <h2>Why Developers Use This</h2>
+          <ul>
+            <li>Quickly convert design colors into SwiftUI code</li>
+            <li>Keep iOS app themes consistent with design systems</li>
+            <li>Save time when working with HEX values from Figma or web specs</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Try It in ColorDevKit</h2>
+          <p>
+            Paste any HEX, RGB, or RGBA value into
+            <a href="/">ColorDevKit</a> to generate SwiftUI color code instantly.
+          </p>
+        </section>
+
+        <section>
+          <h2>Related Guides</h2>
+          <ul>
+            <li><a href="/hex-to-kotlin-color.html">HEX to Kotlin Color Converter</a></li>
+            <li><a href="/hex-to-react-color.html">HEX to React Color Converter</a></li>
+            <li><a href="/hex-to-flutter-color.html">HEX to Flutter Color Converter</a></li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="back-links">
+        <a class="back-link" href="/">Back to converter</a>
+        <a class="back-link" href="/about.html">About</a>
+      </div>
+    </main>
+  </body>
+</html>

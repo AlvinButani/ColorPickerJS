@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HEX vs RGB vs RGBA: Which Should Developers Use? | ColorDevKit</title>
+    <meta
+      name="description"
+      content="Learn the difference between HEX, RGB, and RGBA color formats, when to use each one, and how developers work with them across web and mobile projects."
+    />
+    <meta name="theme-color" content="#D0634D" />
+    <link rel="canonical" href="https://color.devkitapp.in/hex-vs-rgb-vs-rgba.html" />
+    <style>
+      :root { color-scheme: light; --card: rgba(255,255,255,.14); --card-border: rgba(255,255,255,.18); --text: #fff; --muted: rgba(255,255,255,.84); --link: #fff7f4; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; font-family: "Space Grotesk", "Segoe UI", sans-serif; color: var(--text); background: radial-gradient(circle at top left, rgba(255,255,255,.22), transparent 34%), radial-gradient(circle at bottom right, rgba(0,0,0,.22), transparent 28%), linear-gradient(135deg, #cf6c56, #bf583f); }
+      .page { width: min(920px, calc(100vw - 32px)); margin: 24px auto; padding: 28px; border-radius: 28px; backdrop-filter: blur(22px); background: var(--card); border: 1px solid var(--card-border); box-shadow: 0 24px 80px rgba(0,0,0,.24); }
+      .eyebrow { margin: 0 0 10px; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; opacity: .84; }
+      h1 { margin: 0; font-size: clamp(2.2rem, 6vw, 4rem); line-height: .96; letter-spacing: -.05em; }
+      .content { margin-top: 28px; display: grid; gap: 18px; }
+      section { padding: 18px 20px; border-radius: 20px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); }
+      h2 { margin: 0 0 10px; font-size: 1.15rem; }
+      p, li { margin: 0; line-height: 1.7; color: var(--muted); }
+      ul { margin: 10px 0 0; padding-left: 18px; }
+      a { color: var(--link); }
+      .back-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+      .back-link { display: inline-flex; padding: 12px 18px; border-radius: 999px; color: var(--text); text-decoration: none; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.14); }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">Guide</p>
+      <h1>HEX vs RGB vs RGBA</h1>
+      <div class="content">
+        <section>
+          <p>
+            Developers often switch between HEX, RGB, and RGBA when moving colors between
+            design tools, websites, and mobile apps. Each format solves a slightly different problem.
+          </p>
+        </section>
+        <section>
+          <h2>When to Use HEX</h2>
+          <ul>
+            <li>Design tokens and brand palettes</li>
+            <li>Simple color sharing between teams</li>
+            <li>Frameworks and tools that prefer compact color values</li>
+          </ul>
+        </section>
+        <section>
+          <h2>When to Use RGB</h2>
+          <ul>
+            <li>Channel-level color control</li>
+            <li>CSS and code examples where readability matters</li>
+            <li>Converting from visual picker values</li>
+          </ul>
+        </section>
+        <section>
+          <h2>When to Use RGBA</h2>
+          <ul>
+            <li>Transparent overlays and layered UI</li>
+            <li>Cards, shadows, and tinted backgrounds</li>
+            <li>Any time opacity is part of the design requirement</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Try It</h2>
+          <p>
+            Use <a href="/">ColorDevKit</a> to switch instantly between HEX, RGB, RGBA,
+            HSL, HSB, Tailwind, and framework-specific code.
+          </p>
+        </section>
+      </div>
+      <div class="back-links">
+        <a class="back-link" href="/">Back to converter</a>
+        <a class="back-link" href="/rgba-to-hex-converter.html">RGBA to HEX</a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About ColorDevKit</title>
+    <meta
+      name="description"
+      content="Learn about ColorDevKit, a fast color code converter for HEX, RGB, RGBA, SwiftUI, Kotlin, React, Flutter, Tailwind, and modern developer workflows."
+    />
+    <meta name="theme-color" content="#D0634D" />
+    <link rel="canonical" href="https://color.devkitapp.in/about.html" />
+    <style>
+      :root {
+        color-scheme: light;
+        --card: rgba(255, 255, 255, 0.14);
+        --card-border: rgba(255, 255, 255, 0.18);
+        --text: #ffffff;
+        --muted: rgba(255, 255, 255, 0.84);
+        --link: #fff7f4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Space Grotesk", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), transparent 34%),
+          radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.22), transparent 28%),
+          linear-gradient(135deg, #cf6c56, #bf583f);
+      }
+
+      .page {
+        width: min(920px, calc(100vw - 32px));
+        margin: 24px auto;
+        padding: 28px;
+        border-radius: 28px;
+        backdrop-filter: blur(22px);
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 0.78rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.84;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 4.4rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .content {
+        margin-top: 28px;
+        display: grid;
+        gap: 18px;
+      }
+
+      section {
+        padding: 18px 20px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.15rem;
+      }
+
+      p,
+      li {
+        margin: 0;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+      }
+
+      a {
+        color: var(--link);
+      }
+
+      .back-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        padding: 12px 18px;
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 22px 16px;
+          border-radius: 24px;
+        }
+
+        section {
+          padding: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <p class="eyebrow">About</p>
+      <h1>About ColorDevKit</h1>
+
+      <div class="content">
+        <section>
+          <p>
+            ColorDevKit is a fast and developer-friendly color code converter
+            designed to simplify working with colors across platforms. It allows
+            you to instantly convert between HEX, RGB, and RGBA values and
+            generate ready-to-use code for modern development frameworks.
+          </p>
+          <p>
+            Whether you're building mobile apps, websites, or design systems,
+            ColorDevKit helps you work with colors more efficiently.
+          </p>
+        </section>
+
+        <section>
+          <h2>What You Can Do</h2>
+          <p>ColorDevKit provides essential color conversion tools for developers:</p>
+          <ul>
+            <li>Convert HEX to RGB and RGBA in real time</li>
+            <li>Convert RGB/RGBA to HEX instantly</li>
+            <li>Copy ready-to-use color code for SwiftUI</li>
+            <li>Copy Kotlin code for Android development</li>
+            <li>Copy React and React Native color values</li>
+            <li>Copy Flutter color code</li>
+            <li>Use snippets for other popular frameworks</li>
+          </ul>
+          <p>
+            All conversions are accurate, fast, and optimized for developer workflows.
+          </p>
+        </section>
+
+        <section>
+          <h2>Built for Developers & Designers</h2>
+          <p>ColorDevKit is ideal for:</p>
+          <ul>
+            <li>iOS developers using SwiftUI</li>
+            <li>Android developers working with Kotlin</li>
+            <li>Web developers using React</li>
+            <li>Flutter developers building cross-platform apps</li>
+            <li>UI/UX designers creating consistent color systems</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Fast, Simple, and Efficient</h2>
+          <ul>
+            <li>Paste any color value and get instant results</li>
+            <li>No login or setup required</li>
+            <li>Clean interface focused on productivity</li>
+            <li>Perfect for UI development, theming, and design systems</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Why ColorDevKit</h2>
+          <p>
+            If you're looking for a reliable HEX to RGB converter, RGBA generator,
+            or multi-platform color code tool, ColorDevKit provides everything you
+            need in one place: fast, simple, and built for developers.
+          </p>
+        </section>
+      </div>
+
+      <div class="back-links">
+        <a class="back-link" href="/">Back to converter</a>
+        <a class="back-link" href="/privacy.html">Privacy Policy</a>
+        <a class="back-link" href="/terms.html">Terms</a>
+      </div>
+    </main>
+  </body>
+</html>
